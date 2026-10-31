@@ -57,22 +57,15 @@ public class CollectibleSpawner : MonoBehaviour
                 count = 5;
         }
 
-        // Remove existing collectibles.
         GameObject[] existing =
             GameObject.FindGameObjectsWithTag("Collectible");
 
         foreach (GameObject item in existing)
-        {
             Destroy(item);
-        }
 
-        // Tell GameManager how many are required to finish.
         if (GameManager.Instance != null)
-        {
             GameManager.Instance.SetCollectiblesRequired(count);
-        }
 
-        // Spawn the selected number.
         for (int i = 0; i < count; i++)
         {
             Vector3 position = transform.position + new Vector3(

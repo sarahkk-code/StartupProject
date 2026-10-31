@@ -5,10 +5,22 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/simple_ai.unity
     guid: 8063111d54aeae74f9b6c08db96bdf25
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/training_camp.unity
     guid: ae93be72da0f8df49aafade8d7f2f93d
+  - enabled: 1
+    path: Assets/Scenes/gameLevel.unity
+    guid: 674f90a552451964abe7bca6f158cabf
+  - enabled: 1
+    path: Assets/Scenes/loseScene.unity
+    guid: 7b4022ef4ad55ff41a688b611aa56848
+  - enabled: 1
+    path: Assets/Scenes/winScene.unity
+    guid: e592adcdb302ef74aa2435bc6c00d558
+  - enabled: 1
+    path: Assets/Scenes/gameLevelAuto.unity
+    guid: bb882681d3d60da4185ed1d7a3b739fc
   m_configObjects: {}

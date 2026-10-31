@@ -4,8 +4,8 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class GrenadeMovement : MonoBehaviour
 {
-    public float throwSpeed = 8f;
-    public float upwardForce = 1.5f;
+    public float throwSpeed = 2f;
+    public float upwardForce = 0.5f;
 
     private Rigidbody rb;
 
@@ -26,11 +26,5 @@ public class GrenadeMovement : MonoBehaviour
             (direction.normalized + Vector3.up * upwardForce).normalized;
 
         rb.AddForce(throwDirection * throwSpeed, ForceMode.VelocityChange);
-    }
-
-    private void Start()
-    {
-        // Example throw toward the forward direction.
-        Throw(transform.forward);
     }
 }

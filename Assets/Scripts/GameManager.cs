@@ -1,5 +1,7 @@
 
+using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class GameManager : MonoBehaviour
@@ -13,7 +15,7 @@ public class GameManager : MonoBehaviour
     [Header("Level Completion")]
     public TMP_Text messageText;
     public GameObject endPanel;
-    public int collectiblesRequired = 3;
+    public int collectiblesRequired = 10;
 
     private bool gameEnded = false;
 
@@ -22,6 +24,8 @@ public class GameManager : MonoBehaviour
         Instance = this;
         score = 0;
         gameEnded = false;
+
+        Time.timeScale = 1f;
 
         if (messageText != null)
         {
@@ -40,7 +44,6 @@ public class GameManager : MonoBehaviour
     {
         collectiblesRequired = amount;
 
-        // Reset the level when the target changes.
         score = 0;
         gameEnded = false;
 
@@ -93,7 +96,6 @@ public class GameManager : MonoBehaviour
     private void EndGame()
     {
         gameEnded = true;
-        Time.timeScale = 0f;
 
         if (messageText != null)
         {
@@ -106,5 +108,15 @@ public class GameManager : MonoBehaviour
         }
 
         Debug.Log("LEVEL COMPLETE!");
+
+        StartCoroutine(LoadWinScene());
+    }
+
+    private IEnumerator LoadWinScene()
+    {
+        yield return new WaitForSecondsRealtime(2f);
+
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("winScene");
     }
 }
