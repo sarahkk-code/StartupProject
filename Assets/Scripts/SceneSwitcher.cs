@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System.Collections.Generic;
 
 public class SceneSwitcher : MonoBehaviour
 {
@@ -10,9 +11,11 @@ public class SceneSwitcher : MonoBehaviour
     private string[] scenes =
     {
         "gameLevel",
+        "gameLevelAuto",
         "loseScene",
         "winScene",
-        "gameLevelAuto"
+        "offmesh",
+        "paths"
     };
 
     private void Start()
@@ -23,7 +26,9 @@ public class SceneSwitcher : MonoBehaviour
             return;
         }
 
-        // Make the dropdown show the scene currently being played.
+        sceneDropdown.ClearOptions();
+        sceneDropdown.AddOptions(new List<string>(scenes));
+
         int currentIndex = System.Array.IndexOf(
             scenes,
             SceneManager.GetActiveScene().name
@@ -40,8 +45,6 @@ public class SceneSwitcher : MonoBehaviour
     {
         if (index < 0 || index >= scenes.Length)
             return;
-
-        Debug.Log("Loading scene: " + scenes[index]);
 
         Time.timeScale = 1f;
         SceneManager.LoadScene(scenes[index]);
