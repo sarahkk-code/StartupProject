@@ -15,7 +15,9 @@ public class SceneSwitcher : MonoBehaviour
         "loseScene",
         "winScene",
         "offmesh",
-        "paths"
+        "paths",
+        "chapter3",
+        "chapter4"
     };
 
     private void Start()
